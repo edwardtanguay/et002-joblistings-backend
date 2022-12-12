@@ -1,14 +1,17 @@
 import express from 'express';
 import * as tools from './tools.js';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 const app = express();
 app.use(cors());
 const port = 3014;
-
+dotenv.config();
+const EXECUTING_ENVIRONMENT = process.env.EXECUTING_ENVIRONMENT;
 
 app.get('/', (req: express.Request, res: express.Response) => {
 	res.send(`<h1>Job-Listing API</h1>
+	<p>Executing environment = ${EXECUTING_ENVIRONMENT}</p>
 	<ul>
 		<li>GET <a href="/jobs">/jobs</a> - job listings</li>	
 	</ul>

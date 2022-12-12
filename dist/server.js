@@ -1,6 +1,8 @@
 import express from 'express';
 import * as tools from './tools.js';
+import cors from 'cors';
 const app = express();
+app.use(cors());
 const port = 3014;
 app.get('/', (req, res) => {
     res.send(`<h1>Job-Listing API</h1>
